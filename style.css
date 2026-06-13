@@ -1,3 +1,21 @@
+:root {
+    --bg-color: #f8f9fa;
+    --app-bg: white;
+    --text-color: #333;
+    --heading-color: #2c3e50;
+    --shadow-color: rgba(0,0,0,0.05);
+    --btn-shadow: rgba(76, 175, 80, 0.3);
+}
+
+[data-theme="dark"] {
+    --bg-color: #121212;
+    --app-bg: #1e1e1e;
+    --text-color: #e0e0e0;
+    --heading-color: #ffffff;
+    --shadow-color: rgba(0,0,0,0.4);
+    --btn-shadow: rgba(0, 0, 0, 0.5);
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
@@ -5,21 +23,44 @@ body {
     align-items: center;
     min-height: 100vh;
     margin: 0;
-    background-color: #f8f9fa;
-    color: #333;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    transition: background-color 0.3s, color 0.3s;
 }
 
 #app {
     text-align: center;
-    background: white;
+    background: var(--app-bg);
     padding: 3rem;
     border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    box-shadow: 0 10px 25px var(--shadow-color);
+    position: relative;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.theme-toggle-container {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+#theme-toggle {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+}
+
+#theme-toggle:hover {
+    background-color: var(--shadow-color);
 }
 
 h1 {
     margin-bottom: 2rem;
-    color: #2c3e50;
+    color: var(--heading-color);
     font-weight: 300;
 }
 
@@ -39,7 +80,7 @@ h1 {
     border-radius: 50px;
     background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
     color: white;
-    box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+    box-shadow: 0 4px 15px var(--btn-shadow);
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
