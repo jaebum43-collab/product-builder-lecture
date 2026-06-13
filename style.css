@@ -31,17 +31,20 @@ body {
 #app {
     text-align: center;
     background: var(--app-bg);
-    padding: 3rem;
-    border-radius: 15px;
-    box-shadow: 0 10px 25px var(--shadow-color);
+    padding: 2.5rem;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px var(--shadow-color);
     position: relative;
     transition: background-color 0.3s, box-shadow 0.3s;
+    width: 100%;
+    max-width: 500px;
+    margin: 20px;
 }
 
 .theme-toggle-container {
     position: absolute;
-    top: 20px;
-    right: 20px;
+    top: 15px;
+    right: 15px;
 }
 
 #theme-toggle {
@@ -49,7 +52,7 @@ body {
     border: none;
     font-size: 1.5rem;
     cursor: pointer;
-    padding: 5px;
+    padding: 8px;
     border-radius: 50%;
     transition: background-color 0.2s;
 }
@@ -61,20 +64,31 @@ body {
 h1 {
     margin-bottom: 2rem;
     color: var(--heading-color);
-    font-weight: 300;
+    font-weight: 700;
+    font-size: 1.8rem;
 }
 
-#lotto-balls-container {
+#lotto-sets-container {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     gap: 15px;
     margin-bottom: 2.5rem;
-    min-height: 40px; /* Prevent layout jump */
+}
+
+.lotto-set {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    padding: 12px;
+    background: var(--bg-color);
+    border-radius: 12px;
+    transition: background-color 0.3s;
 }
 
 #generate-btn {
-    padding: 12px 30px;
-    font-size: 18px;
+    padding: 14px 40px;
+    font-size: 1.1rem;
+    font-weight: 600;
     cursor: pointer;
     border: none;
     border-radius: 50px;
@@ -82,6 +96,7 @@ h1 {
     color: white;
     box-shadow: 0 4px 15px var(--btn-shadow);
     transition: transform 0.2s, box-shadow 0.2s;
+    width: 100%;
 }
 
 #generate-btn:hover {

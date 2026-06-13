@@ -1,7 +1,7 @@
 import './LottoBall.js';
 
 const generateBtn = document.getElementById('generate-btn');
-const lottoBallsContainer = document.getElementById('lotto-balls-container');
+const lottoSetsContainer = document.getElementById('lotto-sets-container');
 const themeToggle = document.getElementById('theme-toggle');
 
 // Theme Logic
@@ -21,14 +21,23 @@ function updateThemeIcon(theme) {
 }
 
 generateBtn.addEventListener('click', () => {
-    lottoBallsContainer.innerHTML = '';
-    const numbers = generateLottoNumbers();
-    numbers.sort((a, b) => a - b);
-    numbers.forEach(number => {
-        const lottoBall = document.createElement('lotto-ball');
-        lottoBall.setAttribute('number', number);
-        lottoBallsContainer.appendChild(lottoBall);
-    });
+    lottoSetsContainer.innerHTML = '';
+    
+    for (let i = 0; i < 5; i++) {
+        const numbers = generateLottoNumbers();
+        numbers.sort((a, b) => a - b);
+        
+        const setDiv = document.createElement('div');
+        setDiv.className = 'lotto-set';
+        
+        numbers.forEach(number => {
+            const lottoBall = document.createElement('lotto-ball');
+            lottoBall.setAttribute('number', number);
+            setDiv.appendChild(lottoBall);
+        });
+        
+        lottoSetsContainer.appendChild(setDiv);
+    }
 });
 
 function generateLottoNumbers() {
