@@ -2,12 +2,13 @@ const themeToggle = document.getElementById('theme-toggle');
 const initialView = document.getElementById('initial-view');
 const loadingView = document.getElementById('loading-view');
 const resultView = document.getElementById('result-view');
-const openGiftBtn = document.getElementById('open-gift-btn');
+const startBtn = document.getElementById('start-btn');
 const restartBtn = document.getElementById('restart-btn');
 const progressBar = document.getElementById('progress-bar');
 const loadingText = document.getElementById('loading-text');
-const resultIcon = document.getElementById('result-icon');
-const resultDescription = document.getElementById('result-description');
+const resultContent = document.getElementById('result-content');
+const name1Input = document.getElementById('name-1');
+const name2Input = document.getElementById('name-2');
 
 // Theme Logic
 const currentTheme = localStorage.getItem('theme') || 'light';
@@ -25,74 +26,65 @@ function updateThemeIcon(theme) {
     themeToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
 }
 
-const gifts = [
-    {
-        icon: '💌',
-        text: '엄마 심부름 10회 이용권!<br>(유효기간: 평생)'
-    },
-    {
-        icon: '🧼',
-        text: '설거지 1주일 면제권!<br>제가 다 할게요~'
-    },
-    {
-        icon: '🤗',
-        text: '무제한 뽀뽀 & 포옹권!<br>사랑해요 엄마!'
-    },
-    {
-        icon: '🧹',
-        text: '방 청소 깔끔하게 하기 쿠폰!<br>잔소리 금지 1회 포함'
-    },
-    {
-        icon: '🍱',
-        text: '엄마를 위한 특별 요리 대접!<br>(맛은 보장 못함 주의)'
-    }
-];
-
 const loadingMessages = [
-    '백화점에서 가장 비싼 걸로 고르는 중...',
-    '엄마의 취향을 분석 중...',
-    '금고에서 선물을 꺼내오는 중...',
-    '정성스럽게 포장하는 중...',
-    '거의 다 준비됐어요!'
+    '두 분의 소셜 데이터 분석 중...',
+    '성격 유형 매칭 알고리즘 가동 중...',
+    '운명적인 주파수 동기화 중...',
+    '미래의 행복 지수 시뮬레이션 중...',
+    '최종 결과값 렌더링 중...'
 ];
 
-openGiftBtn.addEventListener('click', startOpening);
-restartBtn.addEventListener('click', startOpening);
+startBtn.addEventListener('click', () => {
+    const name1 = name1Input.value.trim();
+    const name2 = name2Input.value.trim();
 
-function startOpening() {
+    if (!name1 || !name2) {
+        alert('두 분의 이름을 모두 입력해주세요! ❤️');
+        return;
+    }
+
     initialView.classList.add('hidden');
-    resultView.classList.add('hidden');
     loadingView.classList.remove('hidden');
-    
+
     let progress = 0;
     let messageIndex = 0;
-    
+
     const interval = setInterval(() => {
-        progress += 1;
+        progress += Math.random() * 3;
+        if (progress > 100) progress = 100;
+
         progressBar.style.width = `${progress}%`;
-        
-        if (progress % 20 === 0 && messageIndex < loadingMessages.length - 1) {
-            messageIndex++;
+
+        if (progress % 20 < 1 && messageIndex < loadingMessages.length - 1) {
+            messageIndex = Math.floor(progress / 20);
             loadingText.textContent = loadingMessages[messageIndex];
         }
 
-        if (progress >= 100) {
+        if (progress === 100) {
             clearInterval(interval);
-            setTimeout(showResult, 500);
+            setTimeout(() => showResult(name1, name2), 500);
         }
-    }, 40);
-}
+    }, 50);
+});
 
-function showResult() {
+function showResult(name1, name2) {
     loadingView.classList.add('hidden');
     resultView.classList.remove('hidden');
-    
-    const randomGift = gifts[Math.floor(Math.random() * gifts.length)];
-    resultIcon.textContent = randomGift.icon;
-    resultDescription.innerHTML = randomGift.icon === '💌' ? randomGift.text : randomGift.text;
-    
-    // Simple pulse effect on result
-    resultView.style.animation = 'none';
-    resultView.offsetHeight; // trigger reflow
-    resultView.style.animation = 'fadeIn 0.5s ease-out';
+
+    const pranks = [
+        `주의: ${name2}님이 너무 예뻐서 ${name1}님의 심박수가 위험 수치에 도달했습니다. 평생 옆에서 간호해줘야 합니다.`,
+        `분석 불가: 두 분의 사랑이 측정 범위를 초과했습니다. 결과 대신 '평생 무료 데이트권'이 발급되었습니다.`,
+        `축하합니다! 두 분은 전생에 나라를 구한 '천생연분'입니다. 단, ${name1}님은 매일 ${name2}님에게 "사랑해"라고 말해야 하는 저주에 걸렸습니다.`,
+        `결과 발표: ${name2}님은 ${name1}님의 '인생 로또' 당첨 결과입니다. 잃어버리지 않게 꽉 잡으세요!`
+    ];
+
+    resultContent.innerHTML = pranks[Math.floor(Math.random() * pranks.length)];
 }
+
+restartBtn.addEventListener('click', () => {
+    resultView.classList.add('hidden');
+    initialView.classList.remove('hidden');
+    name1Input.value = '';
+    name2Input.value = '';
+    progressBar.style.width = '0%';
+});
