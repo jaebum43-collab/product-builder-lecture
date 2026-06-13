@@ -1,4 +1,5 @@
 const generateBtn = document.getElementById('generate-btn');
+const restartBtn = document.getElementById('restart-btn');
 const themeToggle = document.getElementById('theme-toggle');
 const userNameInput = document.getElementById('user-name');
 const progressContainer = document.getElementById('progress-container');
@@ -82,4 +83,22 @@ function showResult(name) {
     ];
     
     resultText.innerHTML = messages[Math.floor(Math.random() * messages.length)];
+    restartBtn.classList.remove('hidden');
 }
+
+// Restart Logic
+restartBtn.addEventListener('click', () => {
+    // Reset state
+    dodgeCount = 0;
+    userNameInput.value = '';
+    
+    // Reset UI
+    restartBtn.classList.add('hidden');
+    resultText.classList.add('hidden');
+    generateBtn.classList.remove('hidden', 'dodge');
+    generateBtn.style.left = '';
+    generateBtn.style.top = '';
+    
+    progressBar.style.width = '0%';
+    statusText.textContent = '데이터 분석 중...';
+});

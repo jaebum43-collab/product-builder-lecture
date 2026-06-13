@@ -96,7 +96,7 @@ body {
     line-height: 1.5;
 }
 
-#generate-btn {
+#generate-btn, #restart-btn {
     padding: 14px 40px;
     font-size: 1.1rem;
     font-weight: 600;
@@ -111,9 +111,15 @@ body {
     position: relative;
 }
 
+#restart-btn {
+    background: linear-gradient(135deg, #2196F3 0%, #1e88e5 100%);
+    box-shadow: 0 4px 15px rgba(33, 150, 243, 0.3);
+}
+
 .dodge {
     position: fixed !important;
     width: 200px !important;
+    z-index: 1000;
 }
 
 #generate-btn:hover {
