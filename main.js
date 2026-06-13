@@ -7,8 +7,8 @@ const restartBtn = document.getElementById('restart-btn');
 const progressBar = document.getElementById('progress-bar');
 const loadingText = document.getElementById('loading-text');
 const resultContent = document.getElementById('result-content');
-const name1Input = document.getElementById('name-1');
-const name2Input = document.getElementById('name-2');
+const resultScore = document.getElementById('result-score');
+const userNameInput = document.getElementById('user-name');
 
 // Theme Logic
 const currentTheme = localStorage.getItem('theme') || 'light';
@@ -27,19 +27,18 @@ function updateThemeIcon(theme) {
 }
 
 const loadingMessages = [
-    '두 분의 소셜 데이터 분석 중...',
-    '성격 유형 매칭 알고리즘 가동 중...',
-    '운명적인 주파수 동기화 중...',
-    '미래의 행복 지수 시뮬레이션 중...',
-    '최종 결과값 렌더링 중...'
+    '싱가포르 습도 적응도 계산 중...',
+    '카야 토스트 중독 증상 스캔 중...',
+    '머라이언화(化) 진행 단계 분석 중...',
+    '싱가포르 달러(SGD) 보유량 확인 중...',
+    '한국에 있는 남친 생각하는 빈도 측정 중...'
 ];
 
 startBtn.addEventListener('click', () => {
-    const name1 = name1Input.value.trim();
-    const name2 = name2Input.value.trim();
+    const name = userNameInput.value.trim();
 
-    if (!name1 || !name2) {
-        alert('두 분의 이름을 모두 입력해주세요! ❤️');
+    if (!name) {
+        alert('분석을 위해 이름을 입력해주세요! 🇸🇬');
         return;
     }
 
@@ -50,41 +49,58 @@ startBtn.addEventListener('click', () => {
     let messageIndex = 0;
 
     const interval = setInterval(() => {
-        progress += Math.random() * 3;
+        progress += Math.random() * 4;
         if (progress > 100) progress = 100;
 
         progressBar.style.width = `${progress}%`;
 
-        if (progress % 20 < 1 && messageIndex < loadingMessages.length - 1) {
+        if (progress % 20 < 1.5 && messageIndex < loadingMessages.length - 1) {
             messageIndex = Math.floor(progress / 20);
             loadingText.textContent = loadingMessages[messageIndex];
         }
 
         if (progress === 100) {
             clearInterval(interval);
-            setTimeout(() => showResult(name1, name2), 500);
+            setTimeout(() => showResult(name), 600);
         }
-    }, 50);
+    }, 60);
 });
 
-function showResult(name1, name2) {
+function showResult(name) {
     loadingView.classList.add('hidden');
     resultView.classList.remove('hidden');
 
-    const pranks = [
-        `주의: ${name2}님이 너무 예뻐서 ${name1}님의 심박수가 위험 수치에 도달했습니다. 평생 옆에서 간호해줘야 합니다.`,
-        `분석 불가: 두 분의 사랑이 측정 범위를 초과했습니다. 결과 대신 '평생 무료 데이트권'이 발급되었습니다.`,
-        `축하합니다! 두 분은 전생에 나라를 구한 '천생연분'입니다. 단, ${name1}님은 매일 ${name2}님에게 "사랑해"라고 말해야 하는 저주에 걸렸습니다.`,
-        `결과 발표: ${name2}님은 ${name1}님의 '인생 로또' 당첨 결과입니다. 잃어버리지 않게 꽉 잡으세요!`
+    const results = [
+        {
+            score: 99,
+            text: `심각: ${name}님에게서 머라이언 DNA가 99% 감지되었습니다. 더 늦으면 입에서 물을 뿜게 될 수도 있으니 즉시 한국행 비행기를 타야 합니다.`
+        },
+        {
+            score: 85,
+            text: `분석 결과: 싱가포르의 습도가 ${name}님의 미모를 200% 증폭시켰습니다. 너무 예뻐서 현지 공항에서 '천사'로 오해받아 출국 금지 당할 뻔했습니다.`
+        },
+        {
+            score: 100,
+            text: `주의: 몸 안에서 칠리크랩 성분이 다량 검출되었습니다. 한국 오면 남친에게 칠리크랩 맛 나는 요리를 해줘야 하는 '요리 형벌'에 처해졌습니다.`
+        },
+        {
+            score: 10,
+            text: `긴급: 남친 생각하는 빈도가 '10%'로 측정되었습니다. 아마 싱가포르 달러(SGD) 세느라 바쁜 것으로 추정됩니다. 한국 올 때 선물 많이 사오세요.`
+        },
+        {
+            score: 999,
+            text: `경고: 남친 결핍 지수가 측정 범위를 초과했습니다. 싱가포르의 모든 에어컨을 합쳐도 ${name}님의 그리움을 식힐 수 없다고 합니다.`
+        }
     ];
 
-    resultContent.innerHTML = pranks[Math.floor(Math.random() * pranks.length)];
+    const result = results[Math.floor(Math.random() * results.length)];
+    resultScore.innerHTML = `${result.score}<span>%</span>`;
+    resultContent.innerHTML = result.text;
 }
 
 restartBtn.addEventListener('click', () => {
     resultView.classList.add('hidden');
     initialView.classList.remove('hidden');
-    name1Input.value = '';
-    name2Input.value = '';
+    userNameInput.value = '';
     progressBar.style.width = '0%';
 });

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI 연애 궁합 테스트</title>
+    <title>싱가포르 현지인화 분석기</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -14,34 +14,30 @@
         
         <div id="main-container">
             <div id="initial-view">
-                <div class="main-icon">❤️</div>
-                <h1>AI 연애 궁합 분석</h1>
-                <p class="description">인공지능이 두 분의 이름과 기운을 분석하여<br>숨겨진 연애 궁합을 도출합니다.</p>
+                <div class="main-icon">🦁🇸🇬</div>
+                <h1>싱가포르 현지인화 &<br>남친 결핍 지수 분석</h1>
+                <p class="description">원격 센서를 통해 싱가포르에 있는 당신의<br>상태를 정밀 분석합니다.</p>
                 
                 <div class="input-group">
-                    <input type="text" id="name-1" placeholder="내 이름" autocomplete="off">
-                    <span class="vs">X</span>
-                    <input type="text" id="name-2" placeholder="여자친구 이름" autocomplete="off">
+                    <input type="text" id="user-name" placeholder="이름을 입력하세요" autocomplete="off">
                 </div>
                 
-                <button id="start-btn">궁합 분석 시작</button>
+                <button id="start-btn">정밀 분석 시작</button>
             </div>
 
             <div id="loading-view" class="hidden">
-                <div class="heart-loader">
-                    <div class="heart"></div>
-                </div>
-                <p id="loading-text">두 분의 데이터를 동기화 중...</p>
+                <div class="merlion-loader">🦁💦</div>
+                <p id="loading-text">싱가포르 습도 적응도 계산 중...</p>
                 <div class="progress-container">
                     <div id="progress-bar"></div>
                 </div>
             </div>
 
             <div id="result-view" class="hidden">
-                <div class="result-score">999<span>%</span></div>
-                <h2 id="result-title">환상의 소울메이트!</h2>
+                <div class="result-score" id="result-score">88<span>%</span></div>
+                <h2 id="result-title">분석 완료</h2>
                 <div id="result-content"></div>
-                <button id="restart-btn">다시 테스트하기</button>
+                <button id="restart-btn">다시 분석하기</button>
             </div>
         </div>
     </div>
