@@ -37,52 +37,63 @@ body {
     position: relative;
     transition: background-color 0.3s, box-shadow 0.3s;
     width: 100%;
-    max-width: 500px;
+    max-width: 450px;
     margin: 20px;
 }
 
-.theme-toggle-container {
-    position: absolute;
-    top: 15px;
-    right: 15px;
-}
-
-#theme-toggle {
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-    padding: 8px;
-    border-radius: 50%;
-    transition: background-color 0.2s;
-}
-
-#theme-toggle:hover {
-    background-color: var(--shadow-color);
-}
-
-h1 {
+.subtitle {
+    font-size: 0.9rem;
+    color: #888;
     margin-bottom: 2rem;
-    color: var(--heading-color);
-    font-weight: 700;
-    font-size: 1.8rem;
+}
+
+#input-container {
+    margin-bottom: 1.5rem;
+}
+
+#user-name {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid var(--bg-color);
+    border-radius: 10px;
+    background: var(--bg-color);
+    color: var(--text-color);
+    font-size: 1rem;
+    text-align: center;
+    box-sizing: border-box;
 }
 
 #lotto-sets-container {
+    min-height: 100px;
     display: flex;
     flex-direction: column;
-    gap: 15px;
-    margin-bottom: 2.5rem;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 2rem;
 }
 
-.lotto-set {
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    padding: 12px;
-    background: var(--bg-color);
-    border-radius: 12px;
-    transition: background-color 0.3s;
+.hidden { display: none !important; }
+
+#progress-container {
+    width: 100%;
+    background: #eee;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+#progress-bar {
+    height: 10px;
+    background: #4CAF50;
+    width: 0%;
+    transition: width 0.1s;
+}
+
+#result-text {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #ff4757;
+    line-height: 1.5;
 }
 
 #generate-btn {
@@ -97,6 +108,12 @@ h1 {
     box-shadow: 0 4px 15px var(--btn-shadow);
     transition: transform 0.2s, box-shadow 0.2s;
     width: 100%;
+    position: relative;
+}
+
+.dodge {
+    position: fixed !important;
+    width: 200px !important;
 }
 
 #generate-btn:hover {
