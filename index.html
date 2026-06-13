@@ -4,14 +4,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="google-adsense-account" content="ca-pub-2033339749168479">
-    <meta name="description" content="싱가포르 현지인화 지수와 남친 결핍 지수를 재미있게 분석해보세요. 당신의 싱가포르 생활 적응도를 정밀하게 측정합니다.">
-    <meta name="keywords" content="싱가포르, 현지인화, 남친결핍지수, 싱가포르생활, 재미있는분석">
-    <meta property="og:title" content="싱가포르 현지인화 & 남친 결핍 지수 분석기">
-    <meta property="og:description" content="원격 센서를 통해 당신의 싱가포르 현지인화 지수를 분석합니다.">
+    <meta name="description" content="싱가포르 생활 가이드와 현지 적응도 분석 도구. 싱가포르에서의 삶, 현지화 팁, 그리고 재미있는 현지인화 지수 분석을 제공합니다.">
+    <meta name="keywords" content="싱가포르생활, 싱가포르이민, 싱가포르여행, 현지인화지수, 싱가포르적응, 싱가포르팁">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="SG Localizer | 싱가포르 현지 적응 완벽 가이드">
+    <meta property="og:description" content="싱가포르에서의 삶을 더 깊게 이해하고 당신의 현지화 수준을 체크해보세요.">
     <meta property="og:type" content="website">
-    <title>싱가포르 현지인화 분석기 | 정밀 라이프 스타일 분석</title>
+    
+    <title>SG Localizer - 싱가포르 생활 가이드 및 현지화 분석</title>
+    
+    <!-- Google AdSense -->
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2033339749168479"
      crossorigin="anonymous"></script>
+    
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -19,88 +25,140 @@
         <nav class="nav-container">
             <div class="logo">🦁🇸🇬 SG Localizer</div>
             <ul class="nav-links">
-                <li><a href="#app">분석하기</a></li>
-                <li><a href="#about-section">정보</a></li>
+                <li><a href="#app-section">적응도 분석</a></li>
+                <li><a href="#guide-section">생활 가이드</a></li>
+                <li><a href="#about-section">서비스 정보</a></li>
                 <li><a href="#contact-container">문의</a></li>
             </ul>
         </nav>
     </header>
 
-    <div id="app">
-        <div class="theme-toggle-container">
-            <button id="theme-toggle" aria-label="테마 변경">🌙</button>
-        </div>
-        
-        <div id="main-container">
-            <div id="initial-view">
-                <div class="main-icon">🦁🇸🇬</div>
-                <h1>싱가포르 현지인화 &<br>남친 결핍 지수 분석</h1>
-                <p class="description">원격 센서를 통해 싱가포르에 있는 당신의<br>상태를 정밀 분석합니다.</p>
-                
-                <div class="input-group">
-                    <input type="text" id="user-name" placeholder="이름을 입력하세요" autocomplete="off">
+    <main>
+        <!-- Hero Section for Authority -->
+        <section id="hero-section">
+            <div class="hero-content">
+                <h1>싱가포르 현지인으로 거듭나기</h1>
+                <p>단순한 거주를 넘어, 싱가포르의 문화와 습도에 완벽히 적응하는 길을 안내합니다.</p>
+            </div>
+        </section>
+
+        <!-- Interactive Tool Section -->
+        <section id="app-section">
+            <div id="app">
+                <div class="theme-toggle-container">
+                    <button id="theme-toggle" aria-label="테마 변경">🌙</button>
                 </div>
                 
-                <button id="start-btn">정밀 분석 시작</button>
-            </div>
+                <div id="main-container">
+                    <div id="initial-view">
+                        <div class="main-icon">🦁🇸🇬</div>
+                        <h2>현지 적응도 &<br>남친 결핍 지수 분석</h2>
+                        <p class="description">원격 센서를 통해 당신의 싱가포르 생활<br>현재 상태를 정밀 분석합니다.</p>
+                        
+                        <div class="input-group">
+                            <input type="text" id="user-name" placeholder="이름을 입력하세요" autocomplete="off">
+                        </div>
+                        
+                        <button id="start-btn">정밀 분석 시작</button>
+                    </div>
 
-            <div id="loading-view" class="hidden">
-                <div class="merlion-loader">🦁💦</div>
-                <p id="loading-text">싱가포르 습도 적응도 계산 중...</p>
-                <div class="progress-container">
-                    <div id="progress-bar"></div>
+                    <div id="loading-view" class="hidden">
+                        <div class="merlion-loader">🦁💦</div>
+                        <p id="loading-text">싱가포르 습도 적응도 계산 중...</p>
+                        <div class="progress-container">
+                            <div id="progress-bar"></div>
+                        </div>
+                    </div>
+
+                    <div id="result-view" class="hidden">
+                        <div class="result-score" id="result-score">88<span>%</span></div>
+                        <h2 id="result-title">분석 완료</h2>
+                        <div id="result-content"></div>
+                        <button id="restart-btn">다시 분석하기</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- High-Quality Content Section (Critical for AdSense) -->
+        <section id="guide-section" class="content-container">
+            <div class="article">
+                <h2>싱가포르 생활: 현지화의 5가지 징후</h2>
+                <p>싱가포르에 살다 보면 자신도 모르게 현지 문화에 동화되는 순간들이 있습니다. 다음은 당신이 진정한 '현지인'으로 거듭나고 있다는 증거들입니다.</p>
+                
+                <div class="guide-grid">
+                    <div class="guide-card">
+                        <h3>1. 습도와의 평화로운 공존</h3>
+                        <p>처음에는 숨 막히던 80% 이상의 습도가 이제는 피부 수분을 유지해주는 천연 미스트처럼 느껴진다면? 당신은 이미 싱가포르 기후에 완벽히 적응한 것입니다.</p>
+                    </div>
+                    <div class="guide-card">
+                        <h3>2. 호커센터의 자리 잡기 달인</h3>
+                        <p>티슈 한 통으로 자리를 예약(Choping)하는 기술이 자연스러워지고, '코피 오 코송(Kopi O Kosong)'을 유창하게 주문한다면 현지화 지수는 이미 80%를 넘었습니다.</p>
+                    </div>
+                    <div class="guide-card">
+                        <h3>3. '라(Lah)'의 마법</h3>
+                        <p>문장 끝에 자연스럽게 'Lah', 'Lor', 'Meh'가 붙기 시작한다면 싱글리시의 세계에 발을 들인 것입니다. 이는 단순한 언어 습득을 넘어선 문화적 동화의 상징입니다.</p>
+                    </div>
+                    <div class="guide-card">
+                        <h3>4. 에어컨 온도 저항력</h3>
+                        <p>바깥은 32도인데 실내 에어컨 18도에서도 가디건 하나로 평온함을 유지할 수 있다면, 당신의 체온 조절 시스템은 이미 싱가포르 표준에 맞춰진 것입니다.</p>
+                    </div>
                 </div>
             </div>
 
-            <div id="result-view" class="hidden">
-                <div class="result-score" id="result-score">88<span>%</span></div>
-                <h2 id="result-title">분석 완료</h2>
-                <div id="result-content"></div>
-                <button id="restart-btn">다시 분석하기</button>
+            <div class="article">
+                <h2>왜 현지 적응도 분석이 필요한가요?</h2>
+                <p>타국에서의 생활은 때로 외롭고 힘듭니다. 특히 한국과 다른 환경의 싱가포르에서는 자신의 적응 상태를 유머러스하게 확인해보는 것만으로도 큰 심리적 위안이 될 수 있습니다. 본 서비스는 그러한 '심리적 케어'와 '재미'를 결합하여 제작되었습니다.</p>
             </div>
+        </section>
 
-            <section id="about-section">
-                <hr>
-                <h2>서비스 정보</h2>
-                <p>본 서비스는 싱가포르에 거주하거나 여행 중인 한국인들을 위해 제작된 재미 중심의 분석 도구입니다. 습도 적응도, 현지 음식 선호도 등 다양한 유머러스한 지표를 바탕으로 당신의 '현지인화' 정도를 측정합니다.</p>
-                <p>사용자의 개인정보는 분석 목적으로만 일시적으로 사용되며, 서버에 저장되지 않으므로 안심하고 이용하셔도 좋습니다.</p>
-            </section>
+        <section id="about-section" class="content-container">
+            <hr>
+            <h2>서비스 철학 및 투명성</h2>
+            <p>SG Localizer는 싱가포르 한인 커뮤니티의 즐거움을 위해 탄생했습니다. 우리는 사용자 중심의 가치를 최우선으로 하며, 다음과 같은 원칙을 지킵니다.</p>
+            <ul>
+                <li><strong>데이터 최소화:</strong> 사용자의 이름은 분석 화면 표시 후 즉시 파기되며, 서버에 저장되지 않습니다.</li>
+                <li><strong>정보의 가치:</strong> 단순한 퀴즈를 넘어 싱가포르 생활에 유용한 팁을 지속적으로 업데이트합니다.</li>
+                <li><strong>사용자 피드백:</strong> 하단의 문의 섹션과 댓글을 통해 사용자의 목소리를 경청합니다.</li>
+            </ul>
+        </section>
 
-            <div id="contact-container">
-                <hr>
-                <p class="contact-title">제휴 및 문의</p>
-                <form action="https://formspree.io/f/mykabnya" method="POST">
-                    <input type="email" name="email" placeholder="이메일 주소" required>
-                    <textarea name="message" placeholder="문의 내용을 입력하세요" required></textarea>
-                    <button type="submit" id="submit-btn">문의 보내기</button>
-                </form>
-            </div>
+        <!-- Interaction Sections -->
+        <section id="contact-container" class="content-container">
+            <hr>
+            <p class="contact-title">제휴 및 문의</p>
+            <p class="description">서비스 제안이나 궁금한 점이 있으시면 언제든 메시지를 남겨주세요.</p>
+            <form action="https://formspree.io/f/mykabnya" method="POST">
+                <input type="email" name="email" placeholder="이메일 주소" required>
+                <textarea name="message" placeholder="문의 내용을 입력하세요" required></textarea>
+                <button type="submit" id="submit-btn">문의 보내기</button>
+            </form>
+        </section>
 
-            <div id="disqus_container">
-                <hr>
-                <div id="disqus_thread"></div>
-                <script>
-                    (function() {
-                    var d = document, s = d.createElement('script');
-                    s.src = 'https://kjb-1.disqus.com/embed.js';
-                    s.setAttribute('data-timestamp', +new Date());
-                    (d.head || d.body).appendChild(s);
-                    })();
-                </script>
-                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-            </div>
-        </div>
-    </div>
+        <section id="disqus_container" class="content-container">
+            <hr>
+            <div id="disqus_thread"></div>
+            <script>
+                (function() {
+                var d = document, s = d.createElement('script');
+                s.src = 'https://kjb-1.disqus.com/embed.js';
+                s.setAttribute('data-timestamp', +new Date());
+                (d.head || d.body).appendChild(s);
+                })();
+            </script>
+        </section>
+    </main>
 
     <footer class="footer-container">
         <div class="footer-links">
             <a href="#" id="privacy-trigger">개인정보처리방침</a> | 
             <a href="#" id="terms-trigger">이용약관</a>
         </div>
-        <p>&copy; 2026 SG Localizer Project. All rights reserved.</p>
+        <p>&copy; 2026 SG Localizer Project. 싱가포르 거주 한인을 위한 전문 가이드 및 분석 서비스.</p>
+        <p style="font-size: 0.7rem; margin-top: 10px; opacity: 0.4;">This site is for entertainment purposes and provides general information about life in Singapore.</p>
     </footer>
 
-    <!-- Modals for Policies -->
+    <!-- Modals -->
     <div id="policy-modal" class="modal hidden">
         <div class="modal-content">
             <span class="close-btn">&times;</span>
