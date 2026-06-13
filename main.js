@@ -1,11 +1,13 @@
-const generateBtn = document.getElementById('generate-btn');
-const restartBtn = document.getElementById('restart-btn');
 const themeToggle = document.getElementById('theme-toggle');
-const userNameInput = document.getElementById('user-name');
-const progressContainer = document.getElementById('progress-container');
+const initialView = document.getElementById('initial-view');
+const loadingView = document.getElementById('loading-view');
+const resultView = document.getElementById('result-view');
+const openGiftBtn = document.getElementById('open-gift-btn');
+const restartBtn = document.getElementById('restart-btn');
 const progressBar = document.getElementById('progress-bar');
-const statusText = document.getElementById('status-text');
-const resultText = document.getElementById('result-text');
+const loadingText = document.getElementById('loading-text');
+const resultIcon = document.getElementById('result-icon');
+const resultDescription = document.getElementById('result-description');
 
 // Theme Logic
 const currentTheme = localStorage.getItem('theme') || 'light';
@@ -23,82 +25,74 @@ function updateThemeIcon(theme) {
     themeToggle.textContent = theme === 'dark' ? '☀️' : '🌙';
 }
 
-// Prank Logic: Dodging Button
-let dodgeCount = 0;
-const MAX_DODGE = 5;
-
-generateBtn.addEventListener('mouseover', () => {
-    if (dodgeCount < MAX_DODGE) {
-        const x = Math.random() * (window.innerWidth - 200);
-        const y = Math.random() * (window.innerHeight - 50);
-        
-        generateBtn.classList.add('dodge');
-        generateBtn.style.left = `${x}px`;
-        generateBtn.style.top = `${y}px`;
-        
-        dodgeCount++;
+const gifts = [
+    {
+        icon: '💌',
+        text: '엄마 심부름 10회 이용권!<br>(유효기간: 평생)'
+    },
+    {
+        icon: '🧼',
+        text: '설거지 1주일 면제권!<br>제가 다 할게요~'
+    },
+    {
+        icon: '🤗',
+        text: '무제한 뽀뽀 & 포옹권!<br>사랑해요 엄마!'
+    },
+    {
+        icon: '🧹',
+        text: '방 청소 깔끔하게 하기 쿠폰!<br>잔소리 금지 1회 포함'
+    },
+    {
+        icon: '🍱',
+        text: '엄마를 위한 특별 요리 대접!<br>(맛은 보장 못함 주의)'
     }
-});
+];
 
-generateBtn.addEventListener('click', () => {
-    const name = userNameInput.value.trim();
-    if (!name) {
-        alert('분석을 위해 이름을 입력해주세요!');
-        return;
-    }
+const loadingMessages = [
+    '백화점에서 가장 비싼 걸로 고르는 중...',
+    '엄마의 취향을 분석 중...',
+    '금고에서 선물을 꺼내오는 중...',
+    '정성스럽게 포장하는 중...',
+    '거의 다 준비됐어요!'
+];
 
-    // Reset UI
-    generateBtn.classList.add('hidden');
-    progressContainer.classList.remove('hidden');
-    resultText.classList.add('hidden');
+openGiftBtn.addEventListener('click', startOpening);
+restartBtn.addEventListener('click', startOpening);
+
+function startOpening() {
+    initialView.classList.add('hidden');
+    resultView.classList.add('hidden');
+    loadingView.classList.remove('hidden');
     
     let progress = 0;
+    let messageIndex = 0;
+    
     const interval = setInterval(() => {
-        progress += Math.random() * 5;
-        if (progress > 100) progress = 100;
-        
+        progress += 1;
         progressBar.style.width = `${progress}%`;
         
-        if (progress < 30) statusText.textContent = '뇌 구조 스캔 중...';
-        else if (progress < 60) statusText.textContent = '인성 데이터 분석 중...';
-        else if (progress < 90) statusText.textContent = '관상 대조 작업 중...';
-        else statusText.textContent = '최종 결과 도출 중...';
-
-        if (progress === 100) {
-            clearInterval(interval);
-            showResult(name);
+        if (progress % 20 === 0 && messageIndex < loadingMessages.length - 1) {
+            messageIndex++;
+            loadingText.textContent = loadingMessages[messageIndex];
         }
-    }, 100);
-});
 
-function showResult(name) {
-    progressContainer.classList.add('hidden');
-    resultText.classList.remove('hidden');
-    
-    const messages = [
-        `분석 결과: ${name}님은...<br><br>당첨 확률 0.00000000001%입니다.`,
-        `축하합니다! ${name}님은<br>평생 로또 안 사셔도 돈 아끼는 운명입니다.`,
-        `${name}님, 로또 대신<br>그 돈으로 맛있는 거나 사드세요.`,
-        `로또 당첨 확률보다<br>${name}님이 오늘 길 가다 벼락 맞을 확률이 더 높습니다.`
-    ];
-    
-    resultText.innerHTML = messages[Math.floor(Math.random() * messages.length)];
-    restartBtn.classList.remove('hidden');
+        if (progress >= 100) {
+            clearInterval(interval);
+            setTimeout(showResult, 500);
+        }
+    }, 40);
 }
 
-// Restart Logic
-restartBtn.addEventListener('click', () => {
-    // Reset state
-    dodgeCount = 0;
-    userNameInput.value = '';
+function showResult() {
+    loadingView.classList.add('hidden');
+    resultView.classList.remove('hidden');
     
-    // Reset UI
-    restartBtn.classList.add('hidden');
-    resultText.classList.add('hidden');
-    generateBtn.classList.remove('hidden', 'dodge');
-    generateBtn.style.left = '';
-    generateBtn.style.top = '';
+    const randomGift = gifts[Math.floor(Math.random() * gifts.length)];
+    resultIcon.textContent = randomGift.icon;
+    resultDescription.innerHTML = randomGift.icon === '💌' ? randomGift.text : randomGift.text;
     
-    progressBar.style.width = '0%';
-    statusText.textContent = '데이터 분석 중...';
-});
+    // Simple pulse effect on result
+    resultView.style.animation = 'none';
+    resultView.offsetHeight; // trigger reflow
+    resultView.style.animation = 'fadeIn 0.5s ease-out';
+}

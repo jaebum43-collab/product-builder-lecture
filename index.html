@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>로또 번호 추천기</title>
+    <title>엄마를 위한 특별한 선물</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -11,23 +11,30 @@
         <div class="theme-toggle-container">
             <button id="theme-toggle" aria-label="테마 변경">🌙</button>
         </div>
-        <h1>AI 로또 당첨 확률 계산기</h1>
-        <p class="subtitle">당신의 관상과 성격으로 1등 확률을 정밀 분석합니다.</p>
         
-        <div id="input-container">
-            <input type="text" id="user-name" placeholder="이름을 입력하세요" autocomplete="off">
-        </div>
-
-        <div id="lotto-sets-container">
-            <div id="progress-container" class="hidden">
-                <div id="progress-bar"></div>
-                <p id="status-text">데이터 분석 중...</p>
+        <div id="gift-container">
+            <div id="initial-view">
+                <div class="heart-icon">💝</div>
+                <h1>엄마만을 위한 서프라이즈</h1>
+                <p class="description">세상에서 가장 소중한 우리 엄마를 위해<br>특별한 선물을 준비했어요.</p>
+                <button id="open-gift-btn">선물 확인하기</button>
             </div>
-            <div id="result-text" class="hidden"></div>
-        </div>
 
-        <button id="generate-btn">확률 분석 시작</button>
-        <button id="restart-btn" class="hidden">다시 분석하기</button>
+            <div id="loading-view" class="hidden">
+                <div class="spinner"></div>
+                <p id="loading-text">엄마에게 딱 맞는 선물을 고르는 중...</p>
+                <div class="progress-container">
+                    <div id="progress-bar"></div>
+                </div>
+            </div>
+
+            <div id="result-view" class="hidden">
+                <div class="result-icon" id="result-icon">🎁</div>
+                <h2 id="result-title">짜잔!</h2>
+                <p id="result-description"></p>
+                <button id="restart-btn">하나 더 열어보기</button>
+            </div>
+        </div>
     </div>
     <script src="main.js" type="module"></script>
 </body>
