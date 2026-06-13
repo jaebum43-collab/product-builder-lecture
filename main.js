@@ -10,6 +10,54 @@ const resultContent = document.getElementById('result-content');
 const resultScore = document.getElementById('result-score');
 const userNameInput = document.getElementById('user-name');
 
+// Policy Modals
+const modal = document.getElementById('policy-modal');
+const modalBody = document.getElementById('modal-body');
+const closeBtn = document.querySelector('.close-btn');
+const privacyTrigger = document.getElementById('privacy-trigger');
+const termsTrigger = document.getElementById('terms-trigger');
+
+const policies = {
+    privacy: `
+        <h2>개인정보처리방침</h2>
+        <p>SG Localizer Project는 사용자의 개인정보를 소중히 다룹니다.</p>
+        <p>1. 수집 항목: 본 서비스는 분석을 위해 입력하신 '이름' 외에는 어떠한 정보도 수집하지 않습니다.</p>
+        <p>2. 이용 목적: 입력된 이름은 분석 결과 화면에 표시하기 위한 용도로만 사용됩니다.</p>
+        <p>3. 보유 및 파기: 모든 데이터는 브라우저 세션 내에서만 처리되며, 서버에 저장되지 않습니다.</p>
+        <p>4. 쿠키 사용: 테마 설정(다크/라이트 모드) 및 애드센스 광고 최적화를 위해 브라우저 로컬 스토리지 및 쿠키를 사용할 수 있습니다.</p>
+    `,
+    terms: `
+        <h2>이용약관</h2>
+        <p>본 서비스를 이용함에 있어 다음 사항에 동의하게 됩니다.</p>
+        <p>1. 서비스 목적: 본 서비스는 엔터테인먼트(재미)를 목적으로 제작되었으며, 분석 결과는 과학적 근거가 없습니다.</p>
+        <p>2. 책임 제한: 서비스 이용으로 발생하는 심리적 타격(?)이나 결과에 대해 운영자는 책임을 지지 않습니다.</p>
+        <p>3. 저작권: 본 서비스의 디자인과 로직은 SG Localizer Project에 귀속됩니다.</p>
+        <p>4. 광고 게재: 본 서비스는 무료 제공을 위해 Google AdSense 광고를 포함하고 있습니다.</p>
+    `
+};
+
+privacyTrigger.addEventListener('click', (e) => {
+    e.preventDefault();
+    modalBody.innerHTML = policies.privacy;
+    modal.classList.remove('hidden');
+});
+
+termsTrigger.addEventListener('click', (e) => {
+    e.preventDefault();
+    modalBody.innerHTML = policies.terms;
+    modal.classList.remove('hidden');
+});
+
+closeBtn.addEventListener('click', () => {
+    modal.classList.add('hidden');
+});
+
+window.addEventListener('click', (e) => {
+    if (e.target === modal) {
+        modal.classList.add('hidden');
+    }
+});
+
 // Theme Logic
 const currentTheme = localStorage.getItem('theme') || 'light';
 document.documentElement.setAttribute('data-theme', currentTheme);

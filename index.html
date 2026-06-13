@@ -3,10 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>싱가포르 현지인화 분석기</title>
+    <meta name="google-adsense-account" content="ca-pub-2033339749168479">
+    <meta name="description" content="싱가포르 현지인화 지수와 남친 결핍 지수를 재미있게 분석해보세요. 당신의 싱가포르 생활 적응도를 정밀하게 측정합니다.">
+    <meta name="keywords" content="싱가포르, 현지인화, 남친결핍지수, 싱가포르생활, 재미있는분석">
+    <meta property="og:title" content="싱가포르 현지인화 & 남친 결핍 지수 분석기">
+    <meta property="og:description" content="원격 센서를 통해 당신의 싱가포르 현지인화 지수를 분석합니다.">
+    <meta property="og:type" content="website">
+    <title>싱가포르 현지인화 분석기 | 정밀 라이프 스타일 분석</title>
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2033339749168479"
+     crossorigin="anonymous"></script>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <header>
+        <nav class="nav-container">
+            <div class="logo">🦁🇸🇬 SG Localizer</div>
+            <ul class="nav-links">
+                <li><a href="#app">분석하기</a></li>
+                <li><a href="#about-section">정보</a></li>
+                <li><a href="#contact-container">문의</a></li>
+            </ul>
+        </nav>
+    </header>
+
     <div id="app">
         <div class="theme-toggle-container">
             <button id="theme-toggle" aria-label="테마 변경">🌙</button>
@@ -40,6 +59,13 @@
                 <button id="restart-btn">다시 분석하기</button>
             </div>
 
+            <section id="about-section">
+                <hr>
+                <h2>서비스 정보</h2>
+                <p>본 서비스는 싱가포르에 거주하거나 여행 중인 한국인들을 위해 제작된 재미 중심의 분석 도구입니다. 습도 적응도, 현지 음식 선호도 등 다양한 유머러스한 지표를 바탕으로 당신의 '현지인화' 정도를 측정합니다.</p>
+                <p>사용자의 개인정보는 분석 목적으로만 일시적으로 사용되며, 서버에 저장되지 않으므로 안심하고 이용하셔도 좋습니다.</p>
+            </section>
+
             <div id="contact-container">
                 <hr>
                 <p class="contact-title">제휴 및 문의</p>
@@ -54,16 +80,7 @@
                 <hr>
                 <div id="disqus_thread"></div>
                 <script>
-                    /**
-                    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
-                    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
-                    /*
-                    var disqus_config = function () {
-                    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
-                    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
-                    };
-                    */
-                    (function() { // DON'T EDIT BELOW THIS LINE
+                    (function() {
                     var d = document, s = d.createElement('script');
                     s.src = 'https://kjb-1.disqus.com/embed.js';
                     s.setAttribute('data-timestamp', +new Date());
@@ -74,6 +91,23 @@
             </div>
         </div>
     </div>
+
+    <footer class="footer-container">
+        <div class="footer-links">
+            <a href="#" id="privacy-trigger">개인정보처리방침</a> | 
+            <a href="#" id="terms-trigger">이용약관</a>
+        </div>
+        <p>&copy; 2026 SG Localizer Project. All rights reserved.</p>
+    </footer>
+
+    <!-- Modals for Policies -->
+    <div id="policy-modal" class="modal hidden">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
     <script src="main.js" type="module"></script>
 </body>
 </html>

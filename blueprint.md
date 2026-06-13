@@ -23,8 +23,17 @@ A fun, interactive web application that "analyzes" how much a user has localized
 
 ### Phase 2: Engagement & Distribution (Current)
 - **Disqus Integration:** Added community comment section at the bottom of the main container.
+- **Google AdSense Integration:** Added the AdSense script to the head of the document for monetization.
 - **GitHub Integration:** Connected the local repository to `https://github.com/jaebum43-collab/product-builder-lecture`.
 - **Cloudflare Deployment:** Prepared for deployment via Cloudflare Pages for global accessibility.
+
+## Current Plan: Adding & Optimizing Google AdSense
+1. **Integration:** Insert the Google AdSense script into the `<head>` section of `index.html`.
+2. **Verification Optimization:** 
+    - Added `<meta name="google-adsense-account" content="ca-pub-2033339749168479">` to the head.
+    - Moved the AdSense script to the top of the `<head>` for faster detection.
+    - Created `ads.txt` in the root directory for ownership verification.
+3. **Verification:** Ensure the script is correctly loaded and the site is ready for Google's crawl.
 
 ## Design Guidelines
 - **Typography:** Uses 'Pretendard' for a modern, clean look.
