@@ -166,3 +166,60 @@ input:focus {
     white-space: pre-line;
     padding: 0 10px;
 }
+
+#contact-container {
+    margin-top: 3rem;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid var(--bg-color);
+    margin-bottom: 1.5rem;
+}
+
+.contact-title {
+    font-size: 0.9rem;
+    font-weight: bold;
+    color: var(--heading-color);
+    margin-bottom: 1rem;
+    opacity: 0.7;
+}
+
+#contact-container form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#contact-container input, #contact-container textarea {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid var(--bg-color);
+    border-radius: 10px;
+    background: var(--bg-color);
+    color: var(--text-color);
+    font-size: 0.9rem;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+#contact-container textarea {
+    height: 80px;
+    resize: none;
+}
+
+#submit-btn {
+    padding: 12px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    border-radius: 10px;
+    background: var(--text-color);
+    color: var(--app-bg);
+    transition: opacity 0.2s;
+}
+
+#submit-btn:hover {
+    opacity: 0.8;
+}
